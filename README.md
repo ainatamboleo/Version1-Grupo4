@@ -21,17 +21,14 @@ El segundo paso también trataba sobre conectar leds pero con más complejidad q
 //Definimos los leds (led 7 = rojo, led 8 = amarillo).
 const int led1 = 7;
 const int led2 = 8; 
-
 //Asignamos el tiempo durante el cual se mantendrà cada led encendida. En nuestro caso, quisimos que fuesen intervalos de 1 segundo alternandose.
 int nextMillis1;
 int nextMillis2;
 const long interval1 = 1000;
 const long interval2 = 1000; 
-
 //Como queremos que no esten nunca en el mismo estado, tenemos que hacer que empiezen en estados diferentes.
 bool stateLed1 = HIGH;
 bool stateLed2 = LOW;
-
 void setup() {
     pinMode(led1, OUTPUT);
     pinMode(led2, OUTPUT);
@@ -39,7 +36,6 @@ void setup() {
     nextMillis1 = millis() + interval1;
     nextMillis2 = millis() + interval2;
 }
-
 void loop() {
     //Control del led en el pin 7
     if (millis() >= nextMillis1) {
@@ -52,7 +48,6 @@ void loop() {
         //Dejamos contancia del siguiente instante en el cual habrà que cambiar.
         nextMillis1 = millis() + interval1;
     }
-
     //Control del led en el pin 8
     if (millis() >= nextMillis2) {
        if (stateLed2 == LOW)
@@ -119,8 +114,27 @@ void loop() {
 }
 ```
 ## PASO 5
-
+El paso 5 consistía en crear un código que verificarà si el sensor de temperatura estaba captando datos correctamente. En este apartado, decicidmos crear una carpeta con los diferentes leds, sensor y otro material con el que habíamos trabajado para poder efectuar los códigos por separadado y, en caso de que uno falle poder detectar con inmediatez de cual se trataba.
 ## PASO 6
+En este paso tuvimos que estblecer la conexión entre dos arduinos unidos por 3 cables. El objetivo era que uno de los arduinos fuese el transmisor de los datos mientras que el otro tuviera la fuanción de recibirlos e mostrarlos en el ordenador. Empezamos con crear un programa qaue conectase los dos arduinos con la finalidad que la frase 'Empezamos la recepción' passarà de la placa transmisora y se mostrara en el Serial Monitor de la placa receptora:
+```C
+//Incluimos librerías necesarias.
+#include <SoftwareSerial.h>
+SoftwareSerial mySerial(10, 11); // RX, TX (azul, naranja)
+unsigned long nextMillis = 500;
+//Asignamos la frase que deseamos que se muestre en el arduino receptor.
+void setup() {
+   Serial.begin(9600);
+   Serial.println("Empezamos la recepción");
+   mySerial.begin(9600);
+}
+void loop() {
+   if (mySerial.available()) {
+      String data = mySerial.readString();
+      Serial.print(data);
+   }
+}
+```
 ## PASO 7
 ## PASO 8
 ## PASO 9
