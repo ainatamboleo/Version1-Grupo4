@@ -1,3 +1,4 @@
+```C
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(10, 11); 
 unsigned long nextMillis = 500;
@@ -29,3 +30,4 @@ void loop() {
 }
    }
 }
+```
