@@ -1,4 +1,5 @@
 # Version-1-Grupo-4
+Somos Noor Bgiel, Izan Pulido y Aina Tamboleo y os vamos a presentar nuestra versión 1 del proyecto. Este documento consistirà en una explicación detallada de lo efectuado en cada paso para que sea fácil y rápido comprender 
 ## PASO 1
 Este paso fue el inicio de nuestro proyecto. Consistía en conectar una led roja para dejarla encendida. Luego también jugamos con los puntos de conexión de la led para poderla encender y apagar dependiendo del pin de salida al cual iba conectada.
 En este caso, usamos el siguiente còdigo: 
