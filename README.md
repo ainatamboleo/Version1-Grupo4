@@ -1,5 +1,7 @@
 # Version-1-Grupo-4
-Somos Noor Bgiel, Izan Pulido y Aina Tamboleo y os vamos a presentar nuestra versión 1 del proyecto. Este documento consistirà en una explicación detallada de lo efectuado en cada paso para que sea fácil y rápido comprender 
+Somos Noor Bgiel, Izan Pulido y Aina Tamboleo y os vamos a presentar nuestra versión 1 del proyecto. Este documento consistirà en una explicación detallada de lo efectuado en cada paso para que sea fácil y rápido comprender como hemos evolucionado en cada sección de esta primera versión. Mencionar también que en la segunda mejoraremos ampliamente lo que está hecho hasta ahoea ya que contiene dos fallos. En primer lugar, como se puede ver en el vídeo, aunque nuestra gráfica e interfaz funcionen correctamente, se está basando en los datos enviados desde el transmisor, no los recibidos por el arduino tierra. Además en algunos códigos se puede ver que aun tenemos configurados algunos delays que también tendremos que modificar en la segunda versión. Dicho esto, os presentamos la versión 1 de nuestro proyecto.
+### VIDEO
+
 ## PASO 1
 Este paso fue el inicio de nuestro proyecto. Consistía en conectar una led roja para dejarla encendida. Luego también jugamos con los puntos de conexión de la led para poderla encender y apagar dependiendo del pin de salida al cual iba conectada.
 En este caso, usamos el siguiente còdigo: 
