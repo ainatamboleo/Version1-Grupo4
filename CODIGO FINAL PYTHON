@@ -1,5 +1,4 @@
-
-
+```C
 import matplotlib.pyplot as plt
 import random
 import serial
@@ -95,3 +94,4 @@ CButton = Button(window, text="Reanudar", bg='#818CF8', fg="white",command=CClic
 CButton.grid(row=3, column=0, padx=5, pady=5, sticky=N + S + E + W)
 
 window.mainloop()
+```
