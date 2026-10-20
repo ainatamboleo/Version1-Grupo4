@@ -136,9 +136,35 @@ void loop() {
 }
 ```
 ## PASO 7
+Este paso consistía en asegurarse, no solamente de que nuestro arduino transmisor estuviera enviando datos sino que nuestro arduino receptos los estuviera captando correctamente. Para poder efectuar este paso necesitamos:
+'''C
+//Le indicamos al programa que usando la placa identificada como COM3 nos envie repetidamente una verificación de que nuestros mensajes se envien correctamente a la placa receptor arduino.
+import serial
+device = 'COM3'
+mySerial = serial.Serial(device, 9600)
+while True:
+   if mySerial.in_waiting > 0:
+      linea = mySerial.readline().decode('utf-8').rstrip()
+      print(linea)
+'''
+Para poder usar "mySerial" nos tuvimos que instalar ciertas librerías.
 ## PASO 8
+En este caso, una vez establecida la conexión entre arduinos, nos teníamos que plantear la situación que el arduino conectado al sensor era el satelite mientras que el otro arduino, el arduino tierra, recibia esos datos colectados cada 3 segundos. Además tuvimos que conectar una led verde a cada uno de los arduinos. El led verde conectado al arduino satelite tenía que encenderse brevemente cada vez que este enviara datos, mientras que el led verde tierra tenía que hacerlo cada vez que los recibía. 
+(Afegir codi)
 ## PASO 9
-## PASO 10
-## PASO 11
+Para hacer este paso tuvimos que simplificar la manera en la que el arduino satelite enviaba los datos al arduino tierra, ya que nuestro objetivo era crear una gráfica que mostrara los valores de humedad y temperatura dependiendo del tiempo, en el cual 0 se considerabq cuando empezaba el programa.
+Para desarrollar este paso tuvimos que instalar la librería matplotlib. Este fue el resultado: 
+(Afegir codi)
+## PASO 10 y PASO 11
+Para efectuar este paso tuvimos que usar la librería Tinker, la cual consistia en facilitar la interaccion del programa de Python y el usuario. Esto se hacía mediante el siguiente código:
+(Afegir codi)
+Como podemos ver desde aquí hemos programado 3 botones con los que el usuario puede interactuar con la gràfica. En primer lugar aparece el botón de INICIAR, el cual el usuario tiene que clicar para que la gráfica se ponga en marcha. Para parar la gráfica y que deje de recopilar datos tuvimos que añadir el botón de PARAR. Finalmente, el botón REANUDAR se encargaba de volver a ejecutar la gráfica después de usar el botón de PARAR. El código usado para definir cada uno de los botones es el siguiente:
+(Afegir codi)
 ## PASO 12
+En este paso tuvimos que juntar la interfaz con la gráfica para que resultara más fácil de entender y tuviera más dinamismo. Para conseguir esto tuvimos que hacerlo de la siguiente manera/
+(Afegir codi)
 ## PASO 13
+El último paso consistía en añadir unas alarmas, es decir unos señales, que facilitaran información al usuario sobre cierros errores que se pudieran provocar al empezar el programa. En primer lugar añadimos al satelite tierra un led blanco y lo programamos para que se encendira cuando los datos que recibía eran nulos. Seguidamente, incorporamos también al satelite tierra un led azul que se encendía cada vez que se perdía la conexión entre el arduino satelite y el arduino tierra. Esto lo efectuamos de la siguiente manera:
+(Afegir codi)
+## RESUMEN Y VÍDEO
+Aquí mostraremos el resultado final de la version 1 de nuestro proyecto. En primer lugar mencionar que finalizando el paso 13 (en concreto cuando estábamos definendo la led azul nos dimos cuenta de un error que cometimos y no tuvimos tiempo de arreglarlo. El problema se basaba en que la gráfica y la interfaz estaban vinculadoa al arduino satelite y, por lo tanto los datos que salían no se basaban en si el arduino tierra había recibido los datos correctamente, sino en si el arduino satelite los había enviado. Obviamente, al ser la versión 1, tenemos pensado correjir este error en la siguiente versión. Finalmente, aquí se muestran los códigos finales y el vídeo:
