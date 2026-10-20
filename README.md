@@ -137,7 +137,7 @@ void loop() {
 ```
 ## PASO 7
 Este paso consistía en asegurarse, no solamente de que nuestro arduino transmisor estuviera enviando datos sino que nuestro arduino receptos los estuviera captando correctamente. Para poder efectuar este paso necesitamos:
-'''C
+```C
 //Le indicamos al programa que usando la placa identificada como COM3 nos envie repetidamente una verificación de que nuestros mensajes se envien correctamente a la placa receptor arduino.
 import serial
 device = 'COM3'
@@ -146,7 +146,7 @@ while True:
    if mySerial.in_waiting > 0:
       linea = mySerial.readline().decode('utf-8').rstrip()
       print(linea)
-'''
+```
 Para poder usar "mySerial" nos tuvimos que instalar ciertas librerías.
 ## PASO 8
 En este caso, una vez establecida la conexión entre arduinos, nos teníamos que plantear la situación que el arduino conectado al sensor era el satelite mientras que el otro arduino, el arduino tierra, recibia esos datos colectados cada 3 segundos. Además tuvimos que conectar una led verde a cada uno de los arduinos. El led verde conectado al arduino satelite tenía que encenderse brevemente cada vez que este enviara datos, mientras que el led verde tierra tenía que hacerlo cada vez que los recibía. 
