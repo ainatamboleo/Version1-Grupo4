@@ -1,3 +1,4 @@
+```C
 //Definiciones necesarias:
 #include <SoftwareSerial.h>
 #include <DHT.h>
@@ -84,6 +85,7 @@ if (Serial.available() > 0) {
    }
    }
 }
+```
      
   
 
